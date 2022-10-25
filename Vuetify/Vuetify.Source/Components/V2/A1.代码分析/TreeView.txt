@@ -1,0 +1,113 @@
+// API
+
+	active					激活数组中节点 [key]
+	activatable				开启 单击时激活
+	open					打开节点
+	open-all				打开所有节点
+	open-on-click			点击任意位置打开
+	multiple-active			允许多个活动节点
+	transition				开启 开/关时过渡
+
+	items		
+	item-children	
+	item-disabled
+	item-key	
+	item-text
+
+	selectable 				复选框
+	selectable-color
+	selectable-type			模式：leaf | independent
+
+
+
+	indeterminate-icon		不确定状态时，selectable = true
+	expand-icon				扩展节点
+	loading-icon			加载中
+	off-icon				未选择时
+	on-icon					选择时
+
+
+	active-class			激活时 Class
+	color					激活时 Color
+	dark					应用暗色主题
+	light					应用浅色主题
+	dense					减低高度
+	shaped			
+	rounded			
+	hoverable				应用悬停类: boolean
+
+	filter					项目过滤功能			function		
+	load-children 			扩展为空时处理函数 	function
+	search					筛选结果的搜索模型
+	return-object			
+	value			
+
+// 结构
+
+	v-treeview
+		v-treeview-node
+			v-treeview-node__root				
+				
+				v-treeview-node__level			// 根据层次级数添加缩进
+
+				v-icon
+				
+				v-treeview-node__content
+					append div
+					label div
+					prepend div
+
+			v-treeview-node__children
+				v-treeview-node
+
+
+
+
+
+__root {
+	display: flex;
+	align-items: center;
+	min-height: 48px;
+	padding-left: 8px; 
+	padding-right: 8px;
+	position: relative;
+}
+
+__content {
+	align-items: center;
+	display: flex;
+	flex-basis: 0%;
+	flex-grow: 1;
+	flex-shrink: 0;
+	min-width: 0;	
+}	
+__level {
+	width: 24px
+}
+
+.v-treeview-node__label {
+    flex: 1;
+    font-size: inherit;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

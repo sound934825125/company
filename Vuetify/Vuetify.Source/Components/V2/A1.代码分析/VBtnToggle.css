@@ -1,0 +1,119 @@
+/* toggle、btn、focus、icon */
+.theme--light.v-btn-toggle:not(.v-btn-toggle--group) {
+  background: #FFFFFF;
+  color: rgba(0, 0, 0, 0.87);
+}
+.theme--light.v-btn-toggle:not(.v-btn-toggle--group) .v-btn.v-btn {
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+.theme--light.v-btn-toggle:not(.v-btn-toggle--group) .v-btn.v-btn:focus:not(:active) {
+  border-color: rgba(0, 0, 0, 0.26);
+}
+.theme--light.v-btn-toggle:not(.v-btn-toggle--group) .v-btn.v-btn .v-icon {
+  color: #000000;
+}
+
+
+
+.theme--dark.v-btn-toggle:not(.v-btn-toggle--group) {
+  background: #1E1E1E;
+  color: #FFFFFF;
+}
+.theme--dark.v-btn-toggle:not(.v-btn-toggle--group) .v-btn.v-btn {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+.theme--dark.v-btn-toggle:not(.v-btn-toggle--group) .v-btn.v-btn:focus:not(:active) {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+.theme--dark.v-btn-toggle:not(.v-btn-toggle--group) .v-btn.v-btn .v-icon {
+  color: #FFFFFF;
+}
+
+/* 基本类 */
+.v-btn-toggle {
+  border-radius: 4px;
+  display: inline-flex;
+  max-width: 100%;
+}
+/* 子 基本类 */
+.v-btn-toggle > .v-btn.v-btn {
+  border-radius: 0;
+  border-style: solid;
+  border-width: thin;
+  box-shadow: none;
+  box-shadow: none;
+  opacity: 0.8;
+  padding: 0 12px;
+}
+
+
+.v-application--is-ltr .v-btn-toggle > .v-btn.v-btn:first-child {
+  border-top-left-radius: inherit;
+  border-bottom-left-radius: inherit;
+}
+.v-application--is-rtl .v-btn-toggle > .v-btn.v-btn:first-child {
+  border-top-right-radius: inherit;
+  border-bottom-right-radius: inherit;
+}
+.v-application--is-ltr .v-btn-toggle > .v-btn.v-btn:last-child {
+  border-top-right-radius: inherit;
+  border-bottom-right-radius: inherit;
+}
+.v-application--is-rtl .v-btn-toggle > .v-btn.v-btn:last-child {
+  border-top-left-radius: inherit;
+  border-bottom-left-radius: inherit;
+}
+
+/* active */
+.v-btn-toggle > .v-btn.v-btn--active {
+  color: inherit;
+  opacity: 1;
+}
+.v-btn-toggle > .v-btn.v-btn:after {
+  display: none;
+}
+.v-application--is-ltr .v-btn-toggle > .v-btn.v-btn:not(:first-child) {
+  border-left-width: 0;
+}
+.v-application--is-rtl .v-btn-toggle > .v-btn.v-btn:not(:last-child) {
+  border-left-width: 0;
+}
+
+/* default size */
+.v-btn-toggle:not(.v-btn-toggle--dense) .v-btn.v-btn.v-size--default {
+  height: 48px;
+  min-height: 0;
+  min-width: 48px;
+}
+
+.v-btn-toggle--borderless > .v-btn.v-btn {
+  border-width: 0;
+}
+/* dense */
+.v-btn-toggle--dense > .v-btn.v-btn {
+  padding: 0 8px;
+}
+
+/* group */
+.v-btn-toggle--group {
+  border-radius: 0;
+}
+.v-btn-toggle--group > .v-btn.v-btn {
+  background-color: transparent !important;
+  border-color: transparent;
+  margin: 4px;
+  min-width: auto;
+}
+/* rounded 圆角 */
+.v-btn-toggle--rounded {
+  border-radius: 24px;
+}
+/* shaped */
+.v-btn-toggle--shaped {
+  border-radius: 24px 4px;
+}
+/* tile */
+.v-btn-toggle--tile {
+  border-radius: 0;
+}
+

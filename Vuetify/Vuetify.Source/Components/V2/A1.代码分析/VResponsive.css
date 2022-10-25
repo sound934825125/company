@@ -1,0 +1,23 @@
+/* 基本类 */
+.v-responsive {
+  position: relative;
+  overflow: hidden;
+  flex: 1 0 auto;
+  max-width: 100%;
+  display: flex;
+}
+/* 内容类 */
+.v-responsive__content {
+  flex: 1 0 0px;
+  max-width: 100%;
+}
+.v-responsive__sizer {
+  transition: padding-bottom 0.2s cubic-bezier(0.25, 0.8, 0.5, 1);
+  flex: 1 0 0px;
+}
+.v-application--is-ltr .v-responsive__sizer ~ .v-responsive__content {
+  margin-left: -100%;
+}
+.v-application--is-rtl .v-responsive__sizer ~ .v-responsive__content {
+  margin-right: -100%;
+}

@@ -1,0 +1,34 @@
+.theme--light.v-image {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.theme--dark.v-image {
+  color: #FFFFFF;
+}
+
+.v-image {
+  z-index: 0;
+}
+
+.v-image__image,
+.v-image__placeholder {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.v-image__image {
+  background-repeat: no-repeat;
+}
+.v-image__image--preload {
+  filter: blur(2px);
+}
+.v-image__image--contain {
+  background-size: contain;
+}
+.v-image__image--cover {
+  background-size: cover;
+}

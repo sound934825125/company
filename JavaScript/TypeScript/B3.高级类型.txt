@@ -1,0 +1,112 @@
+
+// 10.高级类型
+
+	// 交叉类型 用于 Mixin 将多个类型合并
+
+		typeA & typeB
+
+	// 联合类型 传入的值是A或B类型
+
+		typeA | typeB
+
+// ==========================================================
+
+	// 联合类型只能访问共有属性
+
+	interface interA {
+	    methodsA();
+	    methodsB();
+	}
+
+	interface interB {
+		methodsA();
+		methodsC();
+	}
+
+	function Func(): interA | interB { /*...*/ }
+
+	let varable = Func();
+	varable.methodsA();			// okay
+	varable.methodsB();			// errors
+
+	// 解决: 定义类型检查函数 isInterA
+	// is 类型谓词: 将 parameter 缩减为 Type  
+	// [parameter] is [Type]
+
+	function isInterA(arg: interA | interB): arg is interA {			// 无论传入 A | B 都当作 A
+		return (<interA>arg).methodsB !== undefined;					// 断言 A 判断是否存在 methodsB
+	}
+
+	if ( isInterA(arg) ) { 												// 调用: 存在则调用 interA 方法
+		arg.methodsB(); 
+	} else {
+	    arg.methodsC();													// 不存在则调用 interB 方法
+	}
+
+// ==========================================================
+
+// typeof 判断类型
+
+	function Func(arg: typeA | typeB) {
+	    if (typeof arg === "typeA") { return {/*...*/} }
+	    if (typeof arg === "typeB") { return {/*...*/} }
+	}
+
+// instanceof 是否在原型链上 
+
+if (arg instanceof classA) {
+    padder; // 类型细化为'SpaceRepeatingPadder'
+}
+if (arg instanceof classA) {
+    padder; // 类型细化为'StringPadder'
+} 
+
+// ==========================================================
+
+// 类型别名 
+
+	type s = string														// type name = <type>
+	type s = "strA" | "strB" | "strC"									// 字符串字面量类型: 限定必须为某几个字符串
+	function s(): 1 | 2 | 3 {}											// 数字字面量类型
+
+// ==========================================================
+
+// 可辨识联合: 多类型合并
+
+	interface Square {
+	    kind: "square";
+	    size: number;
+	}
+	interface Rectangle {
+	    kind: "rectangle";
+	    width: number;
+	    height: number;
+	}
+	interface Circle {
+	    kind: "circle";
+	    radius: number;
+	}
+	// 合并
+	type Shape = Square | Rectangle | Circle;
+
+	// 辨识传入任何合法值
+	function area(s: Shape) {
+	    switch (s.kind) {
+	        case "square": return s.size * s.size;
+	        case "rectangle": return s.height * s.width;
+	        case "circle": return Math.PI * s.radius ** 2;
+	        default: return eError(s);							// s 出现不可预料的值时打印
+	    }
+	}
+	// never 错误处理函数
+	function eError(x: never): never {
+	    throw new Error("err " + x);
+	}		
+
+// ==========================================================
+
+// class return this 类型, 在继承类中可以使用父成员 
+
+// 索引类型查询 索引访问操作符
+
+// 映射类型 将某类型所有属性转换为其他形式(只读\可选\...)

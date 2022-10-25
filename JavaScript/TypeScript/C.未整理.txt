@@ -1,0 +1,32 @@
+// =======================================================================================================
+
+13.模块
+15.命名空间和模块
+16.模块解析
+
+18.JSX
+19.装饰器
+21.三斜线指令
+22.JavaScript文件类型检查
+
+// 严格的Null检测 --strictNullChecks
+.d.ts文件
+
+
+	export {}
+	export const varable {}
+	export { A as B }								// 别名
+
+	// 重新导出
+
+	import "./module.js";							// 导入模块，这样是全局的，不推荐
+
+	import * as asName from "./module";				// 导入模块并实例化到变量
+	let varable = new asName.constructor();
+
+	eclare let $: JQuery;							// 声明
+	export default $;	
+
+	import varable = require("./module")			// AMD CommonJS 兼容语法
+
+// =======================================================================================================

@@ -1,0 +1,99 @@
+
+// 1.函数
+
+	// 1.函数变量、 2.参数类型、 =>返回值类型、 4.函数体
+	// 参数：设置this类型、 参数默认值、 ?可选参数、 ...剩余参数(数组类型)
+	let Func: (this: type, arg1: argtype, arg2 = "default", arg3?: argtype, ...arg4: string[]) => retype 
+	 = function(this: type, arg1: argtype, arg2 = "default", arg3?: argtype, ...arg4: string[]): retype { 
+	 	// return ... 	
+	 };
+
+	// 5.2.箭头函数：this指向函数创建时
+	(arg) => {}
+
+	// 5.3.函数重载：根据不同参数类型执行，返回不同值
+	function Func(arg: argtype1): retype1;
+	function Func(arg: argtype2): retype2;
+	function Func(arg): any {
+	    if (typeof arg == "argtype1") {
+	    	// ...
+	    }
+	    else if (typeof arg == "argtype2") {
+	    	// ...
+	    }
+	}
+
+// =======================================================================================================	
+
+// 2.接口 命名类型 第三方代码创造规则
+
+	interface Interf {
+		attr: type;
+		attr?: type;						// 可选的
+		readonly  attr: type;				// 只读的
+	}
+
+	// arg 必须按 Interf 指定
+	function Func(arg: Interf){}
+
+// =======================================================================================================
+
+// 3.类 对象构造器
+
+	class C {
+
+		public attr: type;					// 公开成员，未定义时默认
+		private attr: type;					// 私有成员
+		protected attr: type;				// 受保护的，该继承链中可见，可用于修饰构造函数
+		readonly attr: type;				// 只读的
+		static varable;						// 静态成员，在类中创建而非实例化时，访问：C.varable
+		methods(arg:type){};				// 方法
+
+		get attr(): type {return {}};		// 当attr被调用时调用
+		set attr(): type {return {}};		// 当attr被设置时调用
+
+		constructor(arg: type){				// 构造函数
+			this.attr = arg;				// this 引用本成员
+		}
+	}
+	let c = new C("Arg")					// 实例化： 调用构造函数初始化对象
+
+// 3.1.继承 extends
+
+	class Ce extends E {
+		methods(){							// 重写父类方法或新定义方法
+			super.methods(arg)				// super 调用父类中的方法
+		}					
+	}
+	let ce = new Ce()						// Ce 类继承 C
+
+// 3.2.混入 implements 
+// 把类当作接口，仅使用"类型"而非"实现"
+
+	class classC implements classA, classB {}
+
+// =======================================================================================================
+
+// 4.命名空间 namespace
+
+	// namespaceA.ts
+	namespace nameP {
+	    const privateVar = "";						// 私有成员
+	    export interface inf {}						// 导出，外部可访问
+	    export class myClass implements inf {}
+	}
+	let validators: {nameP.inf} = {};
+
+	// namespaceB.ts 								// 同名 命名空间 分离在不同文件
+	/// <reference path="namespaceA.ts" />			// 导入 namespaceA.ts (三斜线指令：XML标签的单行注释，作为编译器指令)
+	namespace nameP {/* ... */}
+
+// 4.1.declare 外部命名空间.描述非TS类库，声明API
+
+	declare namespace Library { export interface inf {} }
+	declare var Library: Library.inf;
+
+
+
+
+//--outFile  命令行

@@ -1,0 +1,7 @@
+лМ╪сртобв╒йм
+/* eslint-disable no-undef */
+
+// vue.config.js
+module.exports = {
+  lintOnSave: false
+}

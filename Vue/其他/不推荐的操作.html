@@ -1,0 +1,51 @@
+
+<!-- $root 属性 访问该子组件的根实例 -->
+
+<script>
+	// Vue 根实例
+	new Vue({
+		data: {foo: 1},
+		computed: {bar: function () {}},
+		methods: {baz: function () {}}
+	})
+
+	// 获取根组件的数据
+	this.$root.foo
+	// 写入根组件的数据
+	this.$root.foo = 2
+	// 访问根组件的计算属性
+	this.$root.bar
+	// 调用根组件的方法
+	this.$root.baz()
+</script>
+
+<!-- $parent 属性 子组件访问父组件的实例 -->
+
+<!-- ref $refs 为 javascript 留下接口 -->
+
+	<!-- 子组件中 set ref -->
+	<!-- v-for $refs时 ref[] 子组件数组 -->
+	<div id="parent"> 
+		<user-profile ref="profile"></user-profile>
+	</div>
+	<script>
+	var parent = new Vue({ el: '#parent' })
+	// $refs 访问子组件
+	var child = parent.$refs.profile
+	</script>
+
+<!-- 依赖注入：provide inject -->
+	<!-- 祖先组件不需要知道哪些后代组件使用它提供的属性 -->
+	<!-- 后代组件不需要知道被注入的属性来自哪里 -->
+	<script>
+	// provide 选项 在父中指定提供给后代组件的数据/方法
+	provide: function () {
+		return {
+			getMap: this.getMap
+		}
+	}
+	// inject 选项 在子中指定接收的数据/方法
+	inject: ['getMap']
+	</script>
+
+<!-- $forceUpdate 手动更新状态 -->

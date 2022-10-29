@@ -1,28 +1,4 @@
-# VAutocomplete 模糊搜索, 过滤条目
-
-- `search` - String, 焦点时显示文本
-- `transition` - 特效
-
-makeFilterProps 过滤器
-
-- `customFilter` - Function,
-- `customKeyFilter` - Object,
-- `filterKeys: title` - Array, String,
-- `filterMode: intersection` - String
-- `noFilter` - Boolean, 搜索时不过滤, 在服务器端过滤
-- `label` - String, 占位符文本
-
-makeSelectProps 选项组件
-
-
-***Slots***
-
-- `no-data`
-- `chip` - props, item
-- `item` - props, item
-	
-
-
+# VAutocomplete source
 
 ## 自定义事件 emits
 

@@ -1,46 +1,58 @@
-# Autocomplete
+# VAutocomplete user
 
 ## Props
 
-- eager -
-- open-on-clear
-- return-object
-- hide-no-data - 隐藏无数据时的显示
-- no-data-text - 设置无数据时显示文本
-- readonly - 只读
-- multiple - Boolean, 多选
-- transition - 特效
+- search: String - 获取焦点时显示的文本
 
-- label - 标签, 获得焦点时将缩小到左上角
-- placeholder - 占位符文本
-- dense - 样式, 紧凑的
-- flat - 样式, 平坦的
-- prepend-icon
+***makeFilterProps***
 
-**下拉菜单与选中项**
+- customFilter: Function
+- customKeyFilter: Object
+- filterKeys: `title`
+- filterMode: String, `default`: `intersection`
+- noFilter: Boolean - 搜索时不过滤, 在服务器端过滤
+- label: String - 占位符文本
 
-- chips - 薯片
-- closable-chips - 允许关闭的薯片
-- menu - Boolean
-- menu-icon - 下拉菜单按钮
-- menu-props
-- hide-selected - 隐藏选择器
+***makeSelectProps***
 
-**过滤器**
+- chips: Boolean - 选项样式
+- closableChips: Boolean - 允许关闭
+- eager: Boolean
+- hideNoData: Boolean - 隐藏无数据时显示
+- hideSelected: Boolean
+- menu: Boolean
+- menuIcon - `$dropdown`, 设置下拉菜单图标
+- menuProps
+- modelValue: `() => []`
+- multiple: Boolean - 多选
+- noDataText: `$vuetify.noDataText` - 设置无数据时显示的文本
+- openOnClear: Boolean
 
-- custom-filter - Function, 自定义筛选
-- custom-key-filter
-- filter-keys
-- filter-mode
-- no-filter - 不筛选
+***makeItemsProps***
 
-**搜索**
+- item: Array
+- itemTitle: `title`
+- itemValue: `value`
+- itemChildren: `false`
+- itemProps: `props`
+- returnObject: Boolean
 
-- model-value - 双向绑定的已选中项
-- search - 双向绑定的已 input 的搜索文本
-- `v-model:search-input="search"`
-- `v-model:search="search"`
-- cache-items
+***makeTransitionProps***
+
+- transition: `false`
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## User: items props
 
@@ -201,3 +213,37 @@ VTextField
 			// or
 			<span v-for="items in item">{ item.title + "," }<span>
 </v-text-field></v-autocomple>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -80,15 +80,6 @@ makeFilterProps
 - `filterMode: intersection` - String
 - `noFilter` - Boolean
 
-makeItemsProps
-
-- `items: []` - Array
-- `itemTitle: 'title'` - String, Array, Function
-- `itemValue: 'value'` - String, Array, Function
-- `itemChildren: 'children'` - Boolean, String, Array, Function
-- `itemProps: props` - Boolean, String, Array, Function
-- `returnObject` - Boolean
-
 makeValidationProps
 
 - `disabled` - Boolean,
